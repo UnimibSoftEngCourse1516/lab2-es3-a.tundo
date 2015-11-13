@@ -131,6 +131,27 @@ public class Assert {
             failNotEquals(message, expected, actual);
         }
     }
+    
+    public static void assertGreaterThan(byte b1, byte b2,
+            Comparator<Byte> comparator) {
+
+        if (comparator.compare(b1, b2) <= 0)
+            fail("Not greater than");
+    }
+
+    public static void assertGreaterThan(short s1, short s2,
+            Comparator<Short> comparator) {
+
+        if (comparator.compare(s1, s2) <= 0)
+            fail("Not greater than");
+    }
+
+    public static void assertGreaterThan(int i1, int i2,
+            Comparator<Integer> comparator) {
+
+        if (comparator.compare(i1, i2) <= 0)
+            fail("Not greater than");
+    }
 
     public static void assertGreaterThan(long l1, long l2,
             Comparator<Long> comparator) {
@@ -148,6 +169,13 @@ public class Assert {
     public static void assertGreaterThan(float f1, float f2,
             Comparator<Float> comparator) {
         if (comparator.compare(f1, f2) <= 0)
+            fail("Not greater than");
+    }
+    
+    public static void assertGreaterThan(char c1, char c2,
+            Comparator<Character> comparator) {
+
+        if (comparator.compare(c1, c2) <= 0)
             fail("Not greater than");
     }
 
