@@ -331,6 +331,56 @@ public class AssertionTest {
 
     }
 
+    @Test
+    public void greaterThan() {
+        assertGreaterThan((byte) 0, (byte) 1, new Comparator<Byte>() {
+            public int compare(Byte b1, Byte b2) {
+                return b2.compareTo(b1);
+            }
+        });
+        assertGreaterThan((short) 0, (short) 1, new Comparator<Short>() {
+            public int compare(Short s1, Short s2) {
+                return s2.compareTo(s1);
+            }
+        });
+        assertGreaterThan(0, 1, new Comparator<Integer>() {
+            public int compare(Integer i1, Integer i2) {
+                return i2.compareTo(i1);
+            }
+        });
+
+        assertGreaterThan(0l, 1l, new Comparator<Long>() {
+            public int compare(Long l1, Long l2) {
+                return l2.compareTo(l1);
+            }
+        });
+        
+        assertGreaterThan(1.0f, 1.1f, new Comparator<Float>(){
+            public int compare(Float f1, Float f2){
+                return f2.compareTo(f1);
+            }
+        });
+        
+        assertGreaterThan(1.0d, 1.1d, new Comparator<Double>(){
+            public int compare(Double d1, Double d2){
+                return d2.compareTo(d1);
+            }
+        });
+        
+        assertGreaterThan('a', 'b', new Comparator<Character>(){
+            public int compare(Character c1, Character c2){
+                return c2.compareTo(c1);
+            }
+        });
+        
+        assertGreaterThan("a", "b", new Comparator<String>(){
+            public int compare(String s1, String s2){
+                return s2.compareTo(s1);
+            }
+        });
+
+    }
+
     @Test(expected = AssertionError.class)
     public void notEqualsObjectWithNull() {
         assertEquals(new Object(), null);
