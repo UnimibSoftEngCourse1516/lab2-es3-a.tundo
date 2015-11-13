@@ -1,5 +1,7 @@
 package org.junit;
 
+import java.util.Comparator;
+
 import org.hamcrest.Matcher;
 import org.hamcrest.MatcherAssert;
 import org.junit.internal.ArrayComparisonFailure;
@@ -118,6 +120,13 @@ public class Assert {
         } else {
             failNotEquals(message, expected, actual);
         }
+    }
+    
+    
+    public static <T> void assertGreaterThan(T o1, T o2, Comparator<T> comparator){
+        
+        if(comparator.compare(o1, o2) <= 0)
+            fail("Not greater than");
     }
 
     private static boolean equalsRegardingNull(Object expected, Object actual) {
