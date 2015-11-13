@@ -320,18 +320,6 @@ public class AssertionTest {
     }
 
     @Test
-    public <T> void greaterThan() {
-
-        assertGreaterThan("a", "b", new Comparator<String>() {
-
-            public int compare(String a, String b) {
-                return b.compareTo(a);
-            }
-        });
-
-    }
-
-    @Test
     public void greaterThan() {
         assertGreaterThan((byte) 0, (byte) 1, new Comparator<Byte>() {
             public int compare(Byte b1, Byte b2) {
